@@ -64,8 +64,8 @@ void Movie::printReviews()
     cout << "Movie: " << title << endl;
 
     Review* traversalPtr = headReviewNode;
-    double ratingTotal;
-    double ratingCount;
+    double ratingTotal = 0.0;
+    double ratingCount = 0.0;
 
     while (traversalPtr)
     {
@@ -118,9 +118,9 @@ double randomNumberGenerator()
     return static_cast<double>(randomNumber);
 }
 
-void populateReviews(vector<Movie> movieList, string textFileName)
+void populateReviews(vector<Movie>& movieList)
 {
-    ifstream reviewList(textFileName);
+    ifstream reviewList("reviews.txt");
 
     // Test if file was opened properly
     if (!reviewList)
